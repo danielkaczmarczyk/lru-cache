@@ -20,7 +20,6 @@ export function LruCache(capacity: number) {
     }
 
     function get(key: string) {
-      console.log({ data, accessQueue });
       if (data[key]) {
         const index = accessQueue.indexOf(key);
         accessQueue.push(accessQueue[index]);
