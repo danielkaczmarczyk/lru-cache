@@ -37,7 +37,7 @@ export function LruCache(capacity: number) {
       return null;
     }
 
-    function length() {
+    function getLength() {
       if (accessQueue.length === Object.keys(data).length) {
         return accessQueue.length;
       } else {
@@ -49,7 +49,7 @@ export function LruCache(capacity: number) {
 
     return {
       get,
-      length,
+      getLength,
       peek,
       put,
     };
