@@ -1,6 +1,12 @@
 // TODO add Zod runtime validation
 // TODO refactor to only include one map - without the additional array
-export function LruCache(capacity: number) {
+
+export function LruCache(capacity: number): {
+  get(key: string): any | null;
+  getLength(): number;
+  peek(dataStructure: "data" | "queue"): { [key: string]: any } | string[] | void;
+  put(key: string, value: any): void;
+} {
   // stores keys and their values
   const data: { [key: string]: any } = {};
   // stores keys in order of access
@@ -33,7 +39,6 @@ export function LruCache(capacity: number) {
     function peek(dataStructure: "data" | "queue") {
       if (dataStructure === "data") return data;
       if (dataStructure === "queue") return accessQueue;
-      return null;
     }
 
     function getLength() {
